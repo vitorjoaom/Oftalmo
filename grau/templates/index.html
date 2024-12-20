@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cadastro de Clientes</title>
+    </head>
+<body>
+    <h1>Cadastro de Clientes</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Nome</th>
+                    <th>Telefone</th>
+                    <th>Endereço</th>
+                    <th>Grau</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for contato_id, contato in contatos.items %}
+                <tr>
+                    <td>{{}}</td>
+                    <td>{{contato_id}}</td>
+                    <td>{{ contato.nome}}</td>
+                    <td>{{ contato.telefone}}</td>
+                    <td>{{ contato.endereco}}</td>
+                    <td>{{ contato.grau}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" required>
+
+        <label for="telefone">Telefone:</label>
+        <input type="tel" id="telefone" name="telefone" required>
+
+        <label for="endereco">Endereço:</label>  
+
+        <input type="text" id="endereco" name="endereco" required>
+
+        <label for="grau_oculos">Grau  
+ dos Óculos:</label>
+        <input type="number" id="grau_oculos" name="grau_oculos">
+
+        <button type="submit">Cadastrar</button>
+    </form>
+</body>
+</html>
+
+
+
